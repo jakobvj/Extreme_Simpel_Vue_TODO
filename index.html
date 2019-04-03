@@ -1,0 +1,80 @@
+<head>
+    <title>
+        Vores VIRKELIG simple Vue TodoMVC App
+    </title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="container col-lg-4">
+    <h1 class="mt-5">
+        Vores VIRKELIG simple Vue TodoMVC App
+    </h1>
+
+    <!-- Det er i denne div (#app) at vores vue applikation bliver loaded -->
+    <div id="app"></div>
+
+    <!-- Det almindelige tag er script text/template. Den vil ikke blive vist på vores side. Men du kan stadig tilgå elementet hvis du får brug for det -->
+    <script type="text/x-template" id="app-template">
+        <section>
+
+            <!-- Her benytter vi 'v:on' attributten som bliver brugt som respons til alle eventer. I der her eksempel
+                et 'click'. Det får værdien af showCompleted til at ændre sig -->
+            <h4>
+                <label v-on:click="showComplete = !showComplete">
+
+                    <!-- v-model attributten sørger for at checkbox altid repræsenterer vores applikaitons state  -->
+                    <input type="checkbox" v-model="showComplete">
+                    Show Completed
+                </label>
+            </h4>
+
+            <!-- Denne 'list-group' indeholder en 'Vue repeater' -->
+            <ul class="list-group">
+
+                <!-- 'v-for' attributten repeater alle de tags den er sat på. Her vores li-element. den vil gøre det én gang per element i den refererede liste.
+                    Som vi kender det fra en foreach -->
+                <li v-for="todo in filteredTodos" class="list-group-item" v-on:click="todo.complete = !todo.complete;">
+                    <label class="form-check-label ml-4">
+                        <input
+                                type="checkbox"
+                                v-model="todo.complete"
+                                class="form-check-input">
+
+                        <!-- v-bind  bliver brugt til at ændre væærdien af en HTML attributes, i det her tilfælde er det vores class attribut -->
+                        <span
+                                v-bind:class="{completed:todo.complete}">
+
+                                <!-- Vue's {{ }} syntax -->
+                                {{ todo.name }}
+                            </span>
+                    </label>
+                </li>
+            </ul>
+
+            <!-- En form til at have vores submit knap- Læg mærke til v-on directive der bliver brugt. '.prevent' method forhindre 'default behavior' -->
+            <form v-on:submit.prevent="addTodo" class="mt-3">
+                <input
+                        type="text"
+                        v-model="text"
+                        class="form-control"
+                        placeholder="Add new!">
+
+                <!-- :disabled. Begynder med et kolon (:), for at fortælle vue at den skal behandle værdien som en expression og ikke en string -->
+                <button
+                        :disabled="submitIsDisabled"
+                        class="btn btn-primary mt-2">
+                    Add Todo
+                </button>
+            </form>
+        </section>
+    </script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+    <!-- Til sidst vores JavaScript fil der indeholder alt vores logik til applikationen -->
+    <script src="app.js"></script>
+</body>
