@@ -1,0 +1,13 @@
+/*  
+    Det minimale antal styles til todo app'en
+*/
+
+.completed {
+    font-style: italic;;
+    text-decoration: line-through;
+    color: gray;
+}
+
+ul {
+    cursor: pointer;
+}
