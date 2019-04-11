@@ -28,7 +28,7 @@ new Vue({
     /* 
      *  Vores templete definere vores basis struktur for vores appliaktion
      */
-    template: "#app-template",
+    //template: "#app-template",
 
     /**
      * Vores data element bliver kaldt af vores component og returnere det der bliver til vores datamodel for componenten
