@@ -82,7 +82,7 @@ new Vue({
             });
 
             /**
-             * Vue komponenter kan også få fat i sig selv hva 'this' keywordet
+             * Vue komponenter kan også få fat i sig selv vha. 'this' keywordet
              */
             this.text = ``;
         },
