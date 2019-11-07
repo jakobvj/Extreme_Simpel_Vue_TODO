@@ -44,7 +44,7 @@ new Vue({
 
 
     /**
-     * Computed properties er det samme som data. Men istedet for at indehodle specifikke værdier indeholder det funktioner.
+     * Computed properties er det samme som data. Men istedet for at indeholde specifikke værdier indeholder det funktioner.
      * Funktionen bliver kaldt og komponenten der kalder den kan bruge værdien der returneres som en normal property
      */
     computed:{
